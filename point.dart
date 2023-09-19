@@ -1,14 +1,19 @@
-class Point{
+import 'package:equatable/equatable.dart';
+
+class Point extends Equatable{
   const Point(this.x, this.y);
   final int x ;
   final int y ;
+  
+  @override
+  List<Object?> get props => [x, y];
 
   @override
-  String toString() => 'Point($x, $y)';
+  bool? get stringify => true;
+
 }
 
 void main() {
   print(Point(1, 1));
-  const list = [Point(1, 1), Point(2,2)];
-  print(list);
+  print(Point(1, 1)==Point(2,1));
 }
